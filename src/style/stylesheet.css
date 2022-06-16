@@ -1,0 +1,34 @@
+.App{
+  text-align: left;
+  font-family:san-serif;
+}
+
+.h1{
+  font-size: 20;
+}
+
+.question-list{
+  text-align: left;
+  font-family:san-serif;
+}
+
+.login{
+  text-align: center;
+  font-family:san-serif;
+}
+
+.nav{
+  text-align: left;
+  font-family:san-serif;
+}
+
+.Button{padding:3px; margin:4px; background:#CCC; border:1px solid #333; cursor:pointer;}
+
+.Button:focus{
+  background: darkgrey;
+}
+
+.link{
+  font-family:san-serif;
+  font-size: 25px;
+}
