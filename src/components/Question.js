@@ -23,7 +23,7 @@ class Question extends Component {
         <h3> Would you Rather...</h3>
         <h4>{answer1} <strong>OR...</strong> </h4><br />
         <h4>...{answer2}!</h4>
-        <Link class='link' to ={`/question/${this.props.id}`}>View Question</Link>
+        <Link class='link' to ={`/questions/${this.props.id}`}>View Question</Link>
         <br /><br /><br />
       </div>
       )

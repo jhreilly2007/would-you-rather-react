@@ -46,7 +46,7 @@ class App extends Component{
 							<Route exact path='/PageNotFound' component={PageNotFound}/>
 							<PrivateRoute exact path='/questions' component={Home}/>
 							<PrivateRoute exact path='/leaderboard' component={LeaderBoard}/>
-							<PrivateRoute path='/question/:id' component={QuestionById} />
+							<PrivateRoute path='/questions/:id' component={QuestionById} />
 							<PrivateRoute exact path='/add' component={AddQuestion}/>
 							<Route component={PageNotFound}/>				
 						</Switch>

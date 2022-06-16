@@ -18,10 +18,10 @@ class Home extends Component {
 
     return (
       <div className="question-list">
-          <button class='Button' id='answered' value='unanswered' onClick={this.toggleBehavior}>
+          <button className='Button' id='answered' value='unanswered' onClick={this.toggleBehavior}>
               Unanswered QuestionList
           </button>
-          <button class='Button' id='answered' value = 'answered' onClick={this.toggleBehavior}>
+          <button className='Button' id='answered' value = 'answered' onClick={this.toggleBehavior}>
               Answered QuestionList
           </button><br /><br />
 
