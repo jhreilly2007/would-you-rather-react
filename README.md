@@ -14,12 +14,18 @@ Top Level
 Login
 - PrivateRoute: Once a user logs in, setAuthUser(id) action is dispatched. All private routes are now made available to loggedIn user
 
+![image](https://user-images.githubusercontent.com/45285387/174064818-cde7a3b7-31eb-43e3-a60f-09381efb6293.png)
+
+
 Home/Questions
 - Displays a list of unanswered/answered questions to the logged in user. Questions are orderd by date desc.
 - Username is displayed, and navigation routes to 
 	- Questions(Home), 
 	- LeaderBoard
 	- Add New Question
+	
+![image](https://user-images.githubusercontent.com/45285387/174065019-b10c868f-6980-41b9-a6f8-7d51f18e852a.png)
+
 
 Questions/:question_id
 - User can select any unanswered question from HomePage and navigate to details of that poll. 
@@ -30,6 +36,9 @@ Questions/:question_id
 		- The option selected by the user is presented
 		- The number of people who voted for which option
 		- percent of users who voted
+Answered: ![image](https://user-images.githubusercontent.com/45285387/174065198-c77ea000-2323-41d7-aef0-14222e069dcf.png)
+
+Unanwered: ![image](https://user-images.githubusercontent.com/45285387/174065306-9b95207a-0f1b-4462-8af3-f1343e76c658.png)
 
 LeaderBoard
 - available at /leaderboard
@@ -39,6 +48,9 @@ LeaderBoard
 	- no. of Questions asked
 	- no. of Questions answered
 	- ordered in dec by total asked and answer combined
+	
+![image](https://user-images.githubusercontent.com/45285387/174065449-93473bf3-6ab8-49e6-8796-1d7e81181aaf.png)
+
 
 Add Question
 - available at /add
@@ -48,6 +60,12 @@ Add Question
 	- new question appears at the top of unanswered list
 
 The app intereact with the _DATA.js backend correctly and uses Redux to manage state.
+
+![image](https://user-images.githubusercontent.com/45285387/174065591-f40dd4d7-738c-444d-8050-d320e3af2f16.png)
+
+Appears at top of Unanswered Questions
+![image](https://user-images.githubusercontent.com/45285387/174065758-568b71b8-58f9-4105-ae23-3e9e5172dcea.png)
+
 
 ## Run the project
 To run this project, clone the repository from GitHub:
