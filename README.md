@@ -1,7 +1,19 @@
 # Would you Rather...
 
 # Summary
-This my submission for Project 2, Would you rather, as part of the Udacity React nanodegree. 
+This my submission for Project 2, Would you rather, as part of the Udacity React nanodegree.
+
+
+## Run the project
+To run this project, clone the repository from GitHub:
+
+### Steps: 
+1. $ git clone https://github.com/jhreilly2007/would-you-rather-react.git
+
+2. to install project dependencies: ``npm install --no-audit`` SEE: https://github.com/facebook/create-react-app/issues/11174
+
+3. Start the server: ``npm start``
+
 
 ## My approach
 I broke the UI down visually into parts: login, Questions, LeaderBoard, AddNewQuestion, Question details, Results.
@@ -66,16 +78,6 @@ The app intereact with the _DATA.js backend correctly and uses Redux to manage s
 Appears at top of Unanswered Questions
 ![image](https://user-images.githubusercontent.com/45285387/174065758-568b71b8-58f9-4105-ae23-3e9e5172dcea.png)
 
-
-## Run the project
-To run this project, clone the repository from GitHub:
-
-### Steps: 
-1. $ git clone https://github.com/jhreilly2007/would-you-rather-react.git
-
-2. to install project dependencies: ``npm install``
-
-3. Start the server: ``npm start``
 
 ### All specifications as detailed in the Udacity project specifications have been met
 
