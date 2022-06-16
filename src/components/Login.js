@@ -6,9 +6,26 @@ import {Redirect} from 'react-router-dom'
 
 class Login extends Component { 
 
+redirect = null; 
+
+componentDidMount(){
+  const {history, location:{pathname}} = this.props;
+  this.redirect = pathname;
+  //history.push("/questions")
+}
+
 handleAuthUserChange = (id) => {
+  const {history} = this.props;
+
   this.props.dispatch(setAuthUser(id))
-  this.props.history.push('/questions')
+  console.log(this.redirect)
+  if(this.redirect === "/logout" || this.redirect ==="/login"){
+    history.push('/')
+  }else{
+    history.push(this.redirect)
+  }
+  
+
   };
 
   render() {

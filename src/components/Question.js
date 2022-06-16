@@ -3,18 +3,12 @@ import {connect} from 'react-redux'
 import { Link } from 'react-router-dom';
 import PageNotFound from './PageNotFound';
 import {Redirect} from 'react-router-dom'
+import Navigation from './NavigationBar';
 
 class Question extends Component {
   
   render() {
-    const {authorName, answer1, answer2, avatar, question} = this.props
-
-    if (question === null) {
-      console.log(question)
-    return (
-      <Redirect to ={'/pagenotfound'}/>
-      )
-    }
+    const {authorName, answer1, answer2, avatar} = this.props
 
     return(
       <div>
@@ -23,7 +17,7 @@ class Question extends Component {
         <h3> Would you Rather...</h3>
         <h4>{answer1} <strong>OR...</strong> </h4><br />
         <h4>...{answer2}!</h4>
-        <Link class='link' to ={`/questions/${this.props.id}`}>View Question</Link>
+        <Link className='link' to ={`/questions/${this.props.id}`}>View Question</Link>
         <br /><br /><br />
       </div>
       )

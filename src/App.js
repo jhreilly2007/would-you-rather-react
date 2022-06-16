@@ -1,5 +1,5 @@
 import React, {Fragment, Component} from 'react';
-import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link, Redirect} from 'react-router-dom';
 import { handleInitialData } from './actions/shared';
 import { connect } from "react-redux";
 import PrivateRoute from './components/PrivateRoute';
@@ -15,8 +15,7 @@ import PageNotFound from './components/PageNotFound';
 
 const ErrorPath = () => (
   <div>
-    <h3>404 Sorry This Page cannot be found!!! Please log in : </h3>
-    	<Link to={'/'}>Login</Link>
+    <h3>404 Sorry This Page cannot be found!!!</h3>
   </div>
 );
 
@@ -26,7 +25,18 @@ class App extends Component{
 	}		
 
 	render(){
-		const {authUser} = this.props;		
+		const {authUser} = this.props;	
+
+		{
+			if(authUser===null) 
+				return(
+					<Router>
+						<Switch>
+							<Route path="/"component={Login}/>
+						</Switch>
+						</Router>
+				)
+		}	
 		return(
 			<Router>
 				<Fragment>
@@ -34,21 +44,21 @@ class App extends Component{
 					(
 						<>
 						<div>
-						<Header/><br/>
-						<LogOut /><br/><br/>			
+						<Header/><br/>			
 						<Navigation/><br/>
 						</div>
 						</>
 					)}
 						<Switch>
-							<Route exact path='/' component={Login}/>
-							<Route exact path='/login' component={Login}/>
-							<Route exact path='/PageNotFound' component={PageNotFound}/>
-							<PrivateRoute exact path='/questions' component={Home}/>
-							<PrivateRoute exact path='/leaderboard' component={LeaderBoard}/>
-							<PrivateRoute path='/questions/:id' component={QuestionById} />
-							<PrivateRoute exact path='/add' component={AddQuestion}/>
-							<Route component={PageNotFound}/>				
+							<Route path='/' exact component={Login}/>
+							<Route path='/login' exact component={Login}/>
+							<Route path='/logout' exact component={LogOut}/>
+							<Route path='/questions' exact component={Home}/>
+							<Route path='/leaderboard' exact component={LeaderBoard}/>
+							<Route path='/questions/:id' exact component={QuestionById} />
+							<Route path='/add' exact component={AddQuestion}/>
+							<Route path='/error' exact component={ErrorPath}/>
+							<Redirect to="/error"/>
 						</Switch>
 				</Fragment>
 			</Router>

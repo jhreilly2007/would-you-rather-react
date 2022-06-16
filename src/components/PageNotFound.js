@@ -12,7 +12,6 @@ class PageNotFound extends Component {
       return (
         <div>
         <h3>404 Sorry This Page cannot be found !!!</h3>
-        <Link to={'/questions'}>Questions</Link>
         </div>
       )
     if (authUser===null)

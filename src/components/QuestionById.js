@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {handleAssocAnswerWithUser} from '../actions/users';
+import PageNotFound from './PageNotFound';
+import Navigation from './NavigationBar';
 
 class QuestionById extends Component {
 
@@ -13,7 +15,16 @@ class QuestionById extends Component {
   
   render() {
     const {answered, author, authUser, userAnswer, question,
-      answer1, answer2, vote1, vote2, avatar, passedId} = this.props
+      answer1, answer2, vote1, vote2, avatar, passedId, invalidQuestion} = this.props
+  
+    if (invalidQuestion) {
+      return (
+        <div className='question-page'>
+          <Navigation />
+          <PageNotFound />
+        </div>
+      );
+    }
 
     return(
       <div>
@@ -48,10 +59,10 @@ class QuestionById extends Component {
         {
           !answered && (
             <div>
-            <button class="Button" onClick={this.handleAnswer('optionOne')}>
+            <button className="Button" onClick={this.handleAnswer('optionOne')}>
               {answer1}
             </button>
-            <button class="Button" onClick={this.handleAnswer('optionTwo')}>
+            <button className="Button" onClick={this.handleAnswer('optionTwo')}>
               {answer2}
             </button>
             <br /><br />
@@ -66,22 +77,24 @@ const mapStateToProps =({ users, questions, authUser}, props)=>{
     var passedId = props.match.params.id;
     var user = users[authUser]
     const question = questions[passedId]
+    const invalidQuestion = question ? false : true;
     const answered = Object.keys(users[authUser]['answers']).includes(passedId)
     const userAnswer =  answered ? users[authUser]['answers'][passedId] : '';
    
     return{
+      invalidQuestion,
       user,
       passedId, 
       authUser,
       question,
       answered,
-      author: users[question['author']].name,
-      avatar: users[question['author']].avatarURL,
-      answer1: question['optionOne'].text,
-      answer2: question['optionTwo'].text,
+      author: question ? users[question['author']].name : '',
+      avatar: question ? users[question['author']].avatarURL: '',
+      answer1: question ? question['optionOne'].text: '',
+      answer2: question ? question['optionTwo'].text: '',
       userAnswer,
-      vote1:question['optionOne']['votes'].length,
-      vote2:question['optionTwo']['votes'].length
+      vote1:question ? question['optionOne']['votes'].length: 0,
+      vote2:question ? question['optionTwo']['votes'].length: 0
     }
   }
 
