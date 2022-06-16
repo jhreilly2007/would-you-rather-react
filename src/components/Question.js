@@ -1,11 +1,20 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import { Link } from 'react-router-dom';
+import PageNotFound from './PageNotFound';
+import {Redirect} from 'react-router-dom'
 
 class Question extends Component {
   
   render() {
-    const {authorName, answer1, answer2, avatar} = this.props
+    const {authorName, answer1, answer2, avatar, question} = this.props
+
+    if (question === null) {
+      console.log(question)
+    return (
+      <Redirect to ={'/pagenotfound'}/>
+      )
+    }
 
     return(
       <div>
@@ -24,17 +33,17 @@ class Question extends Component {
 function mapStateToProps({ users, questions, authUser}, {id}){
     var question = questions[id]
     const user = users[authUser]
-    const authorName = users[question['author']].name
-    const answer1 = question['optionOne']['text']
-    const answer2 = question['optionTwo']['text']
+    const authorName = question ? users[question['author']].name : ''
+    const answer1 = question ? question['optionOne']['text']:''
+    const answer2 = question ? question['optionTwo']['text']:''
     //const date = question['timestamp']
-    const avatar = users[question['author']].avatarURL
+    const avatar = question ? users[question['author']].avatarURL: ''
 
     return{
       authorName, 
       answer1,
       answer2,
-      //date,
+      question,
       user, 
       avatar
     }

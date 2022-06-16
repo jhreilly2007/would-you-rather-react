@@ -11,8 +11,9 @@ import AddQuestion from './components/AddQuestion';
 import Navigation from './components/NavigationBar';
 import Header from './components/Header';
 import Home from './components/Home';
+import PageNotFound from './components/PageNotFound';
 
-const PageNotFound = () => (
+const ErrorPath = () => (
   <div>
     <h3>404 Sorry This Page cannot be found!!! Please log in : </h3>
     	<Link to={'/'}>Login</Link>
@@ -42,6 +43,7 @@ class App extends Component{
 						<Switch>
 							<Route exact path='/' component={Login}/>
 							<Route exact path='/login' component={Login}/>
+							<Route exact path='/PageNotFound' component={PageNotFound}/>
 							<PrivateRoute exact path='/questions' component={Home}/>
 							<PrivateRoute exact path='/leaderboard' component={LeaderBoard}/>
 							<PrivateRoute path='/question/:id' component={QuestionById} />

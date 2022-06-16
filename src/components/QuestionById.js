@@ -12,8 +12,8 @@ class QuestionById extends Component {
 }
   
   render() {
-    const {answered, author, authUser, userAnswer,
-      answer1, answer2, vote1, vote2, avatar, passedId} = this.props;
+    const {answered, author, authUser, userAnswer, question,
+      answer1, answer2, vote1, vote2, avatar, passedId} = this.props
 
     return(
       <div>
@@ -73,7 +73,7 @@ const mapStateToProps =({ users, questions, authUser}, props)=>{
       user,
       passedId, 
       authUser,
-      //question,
+      question,
       answered,
       author: users[question['author']].name,
       avatar: users[question['author']].avatarURL,
